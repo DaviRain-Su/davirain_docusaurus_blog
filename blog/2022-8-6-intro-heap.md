@@ -76,7 +76,7 @@ MAX-HEAPFIFY是用于维护最大堆性质的重要过程。它的输入为一�
 
 ## 堆排序算法
 
-初始的时候，堆排序算法利用BUILD-MAX-HEAP将输入数组A[1..n]构造成最大堆，其中n = A.length.因为数组中的最大元素总在根节点A[1]中，通过把它与A[n]进行交换。我们让该元素放到正确的位置。这时候，如果我们从堆中去掉节点n（这一操作通过减少A.heap-size 的值来实现），剩余的节点中，原来根的孩子节点仍然是最大堆，而新的根节点可能会违背最大堆的性质。为了维护最大堆的性质，我们要做的是调用MAX-HEAPIFY(A, 1),从而在A[1..n-1]上构造一个新的最大堆。堆排序算法不断重复这一过程，直到堆堆大小从n-1降到2。
+初始的时候，堆排序算法利用`BUILD-MAX-HEAP`将输入数组`A[1..n]`构造成最大堆，其中`n = A.length`.因为数组中的最大元素总在根节点`A[1]`中，通过把它与`A[n]`进行交换。我们让该元素放到正确的位置。这时候，如果我们从堆中去掉节点`n`（这一操作通过减少`A.heap-size` 的值来实现），剩余的节点中，原来根的孩子节点仍然是最大堆，而新的根节点可能会违背最大堆的性质。为了维护最大堆的性质，我们要做的是调用`MAX-HEAPIFY(A, 1)`,从而在`A[1..n-1]`上构造一个新的最大堆。堆排序算法不断重复这一过程，直到堆堆大小从`n-1`降到`2`。
 
 ## 堆的具体实现
 
@@ -115,18 +115,18 @@ HEAP-SORT(A)
 
 ### 向上筛选调整算法， 这里是小根堆
 
-当x[1..n-1]是堆事，在x[n]中放置一个任意的元素可能无法产生heap(1, n).我们使用siftup函数来重新获得堆性质。该函数的名字表明了策略。它尽可能将新元素向上筛选，向上筛选是通过交换该节点与父节点来实现的。
+当`x[1..n-1]`是堆时，在`x[n]`中放置一个任意的元素可能无法产生`heap(1, n)`.我们使用`siftup`函数来重新获得堆性质。该函数的名字表明了策略。它尽可能将新元素向上筛选，向上筛选是通过交换该节点与父节点来实现的。
 
-siftup函数的循环不变式：
+`siftup`函数的循环不变式：
 
 ```
 loop 
     // invariant: heap(1, n) except perhaps between i and its parent
 ```
-由于开始时heap(1, n-1)为真，因此可以通过赋值语句i=n初始化循环。
-循环中必须检查有没有完成任务，若没有则继续。不变式表明，除了节点i和父节点之间的部分可能不具有堆性质外，其他地方都具有堆性质。如果i == 为真，那么节点i没有父节点，从而所有地方都具有堆性质，因此可以终止循环。当节点i有父节点时，可以通过赋值语句p = i / 2使p成为父节点的下标。如果x[p] <= x[i],那么所有地方都具有堆性质，循环可以终止。
+由于开始时`heap(1, n-1)`为真，因此可以通过赋值语句`i=`n`初始化循环。
+循环中必须检查有没有完成任务，若没有则继续。不变式表明，除了节点`i`和父节点之间的部分可能不具有堆性质外，其他地方都具有堆性质。如果`i == 0` 为真，那么节点i没有父节点，从而所有地方都具有堆性质，因此可以终止循环。当节点`i`有父节点时，可以通过赋值语句`p = i / 2`使`p`成为父节点的下标。如果`x[p] <= x[i]`,那么所有地方都具有堆性质，循环可以终止。
 
-另一方面，如果节点i和其父节点之间的循序不对，那么我们交换x[i]和x[p]. 
+另一方面，如果节点i和其父节点之间的循序不对，那么我们交换`x[i]`和`x[p]`. 
 ```
 void siftup(n) 
         pre n > 0 && heap(1, n - 1)
@@ -143,19 +143,19 @@ void siftup(n)
         i = p
 ```
 
-pre和post是函数调用之前的前置条件和后置条件。前置条件为真，那么函数返回之后后置条件也为真。
+`pre`和`post`是函数调用之前的前置条件和后置条件。前置条件为真，那么函数返回之后后置条件也为真。
 
 ### 向下调整算法， 这里是小根堆
 
-当x[1..n]是一个堆时，给x[1]分配一个新值得到heap(2, n).然后用函数siftdown使得heap(1, n)为真。该函数将x[1]向下筛选，直到它没有子节点或者小于等于它的子节点。
+当`x[1..n]`是一个堆时，给`x[1]`分配一个新值得到`heap(2, n)`.然后用函数`siftdown`使得`heap(1, n)`为真。该函数将`x[1]`向下筛选，直到它没有子节点或者小于等于它的子节点。
 
-shiftdown的循环不变式：
+`shiftdown`的循环不变式：
 ```
 loop 
     // invariant: heap(1, n) except perhaps between i and its (0, 1, or 2) children
 ```
 
-首先检查节点i是否具有子节点。如果没有子节点就终止循环。如果节点i具有子节点，那么把变量c设置为较小的那个子节点的下标。最后，或者满足x[i] <= x[c]终止循环。或者通过交换x[i]和x[c]并赋值i = c 继续进行到循环底部。
+首先检查节点i是否具有子节点。如果没有子节点就终止循环。如果节点`i`具有子节点，那么把变量`c`设置为较小的那个子节点的下标。最后，或者满足`x[i] <= x[c]`终止循环。或者通过交换`x[i]`和`x[c]`并赋值`i = c` 继续进行到循环底部。
 ```
 void siftdown(n)
         pre heap(2, n) && n >= 0
@@ -179,132 +179,3 @@ void siftdown(n)
 ```
 
 ## [Rust 算法实现](https://github.com/DaviRain-Su/algorithms-rs/blob/main/src/heap_sort.rs)
-
-```rust
-use std::fmt::{Debug, Display};
-
-#[allow(dead_code)]
-fn parent(i: usize) -> usize {
-    i / 2
-}
-
-fn left(i: usize) -> usize {
-    ((i + 1) << 1) - 1
-}
-
-fn right(i: usize) -> usize {
-    (i + 1) << 1
-}
-
-/// Heap
-#[derive(Debug)]
-pub struct Heap<T> {
-    /// heap data
-    data: Vec<T>,
-    /// heap size
-    size: usize,
-}
-
-impl<T: Clone + PartialOrd + Default + Display + Debug> Heap<T> {
-    /// create a heap from vector
-    pub fn from_vector(array: &[T]) -> Self {
-        Self {
-            data: array.into(),
-            size: array.len() - 1,
-        }
-    }
-
-    /// the present heap size
-    pub fn len(&self) -> usize {
-        self.size
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.len() == 0
-    }
-
-    /// max heap heapify
-    pub fn max_heapify(&mut self, index: usize) {
-        // setting largest is index
-        let mut largest = index;
-        let left = left(index);
-        let right = right(index);
-
-        // if left > largest then larget = left
-        if left <= self.len() && self.data.get(largest) < self.data.get(left) {
-            largest = left;
-        }
-
-        // if right > largest then largest = right
-        if right <= self.len() && self.data.get(largest) < self.data.get(right) {
-            largest = right;
-        }
-
-        if largest != index {
-            // swap vector index , largest value
-            self.data.swap(index, largest);
-            // rec call max_heapify
-            self.max_heapify(largest);
-        }
-    }
-
-    /// the min heap heapify
-    pub fn min_heapify(&mut self, index: usize) {
-        // setting min is index
-        let mut min = index;
-        let left = left(index);
-        let right = right(index);
-
-        // if min > left then min = left
-        if left <= self.len() && self.data.get(min) > self.data.get(left) {
-            min = left;
-        }
-
-        // if min > right then min = right
-        if right <= self.len() && self.data.get(min) > self.data.get(right) {
-            min = right;
-        }
-
-        if min != index {
-            // swap vector index, min value
-            self.data.swap(index, min);
-            // rec call min_heapify
-            self.min_heapify(min);
-        }
-    }
-
-    /// build Max Heap
-    pub fn build_max_heap(&mut self) {
-        for index in (0..(self.len() / 2)).rev() {
-            self.max_heapify(index);
-        }
-    }
-
-    /// build Min Heap
-    pub fn build_min_heap(&mut self) {
-        for index in (0..(self.len() / 2)).rev() {
-            self.min_heapify(index);
-        }
-    }
-
-    /// asc sort by Max Heap
-    pub fn heap_sort(&mut self) {
-        self.build_max_heap();
-        for index in (1..self.data.len()).rev() {
-            self.data.swap(0, index);
-            self.size -= 1;
-            self.max_heapify(0);
-        }
-    }
-
-    /// dec sort by Min Heap
-    pub fn heap_sort_by_min_heap(&mut self) {
-        self.build_min_heap();
-        for index in (1..self.data.len()).rev() {
-            self.data.swap(0, index);
-            self.size -= 1;
-            self.min_heapify(0);
-        }
-    }
-}
-```
