@@ -19,4 +19,4 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "my-blog-1"
-          entrypoint: "./main.ts" # TODO: update entrypoint
+          entrypoint: "./src/pages/index.js" # TODO: update entrypoint
