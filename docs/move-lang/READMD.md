@@ -102,7 +102,6 @@
 - [Starswap-core](https://github.com/Elements-Studio/starswap-core)
 - [A stablecoin impletion in Move](https://github.com/BFlyFinance/FAI)
 - [WEN protocol for Starcoin](https://github.com/wenwenprotocol/wen-protocol)
-- []()
 
 ## video
 - [【第一期】Move语言开发环境搭建教程](https://www.youtube.com/watch?v=yEpivzxEcQA&t=40s)
@@ -110,4 +109,4 @@
 
 ## [Awesome move](https://github.com/MystenLabs/awesome-move)
 
-## [chain <feeds>](https://www.chainfeeds.xyz/topic/detail/877a0c6e-ff3e-4cf5-bf96-eb19241e405a)
+## [chain feeds](https://www.chainfeeds.xyz/topic/detail/877a0c6e-ff3e-4cf5-bf96-eb19241e405a)
