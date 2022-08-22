@@ -113,3 +113,8 @@
 - [跨链通信协议 IBC：区块链的 TCP/IP 协议，跨链桥和趋势](https://mp.weixin.qq.com/s/_b-q_NJMcjvN4SLM_JqqXw)
 - [跨链通信协议 IBC 1.0 的 RC 版本公告](https://mp.weixin.qq.com/s/aBsz1m-lqra-Maoito3vPA)
 - [Research on cross-chain method based on distributed Digital Identity](https://dl.acm.org/doi/fullHtml/10.1145/3532640.3532649)
+- [Research and Implementation of Cross-Chain Transaction Model Based on Improved Hash-Locking](https://link.springer.com/chapter/10.1007/978-981-15-9213-3_17)
+- [Research on Cross-Chain Technology Based on Sidechain and Hash-Locking](https://link.springer.com/chapter/10.1007/978-3-319-94340-4_12)
+- [Blockchain bridges: Guide to cross-chain data sharing](https://blog.logrocket.com/blockchain-bridges-cross-chain-data-sharing-guide/)
+- [Cross-chain interoperability among blockchain-based systems using transactions](https://www.cambridge.org/core/journals/knowledge-engineering-review/article/abs/crosschain-interoperability-among-blockchainbased-systems-using-transactions/F411CF8796F08AFBEA09A3153A5F2183)
+- [Cross-Chain Blockchain Networks, Compatibility Standards, and Interoperability Standards: The Case of European Blockchain Services Infrastructure](https://vbn.aau.dk/en/publications/cross-chain-blockchain-networks-compatibility-standards-and-inter)
