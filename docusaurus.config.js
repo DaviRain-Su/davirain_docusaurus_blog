@@ -23,8 +23,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans','en'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
@@ -35,12 +35,6 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/DaviRain-Su/my-blog/tree/main',
-          routeBasePath: '/',
-          path: 'docs/',
-          exclude: ['docs/**', '**/_*.{md,mdx}'],
-          editCurrentVersion: false,
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -56,10 +50,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [
-        { name: 'viewport', content: 'width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no' },
-        { name: 'keyword', content: 'web,js,css,ts,rust,wiki' },
-      ],
       navbar: {
         title: 'Davirian Site',
         logo: {
