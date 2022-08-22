@@ -52,6 +52,7 @@
 - [Aptos 教程第 1 章：创建事物](https://mire-weeder-a97.notion.site/Aptos-1-1071c706dc0a4601bc6693c00d7baa23)
 
 ## Starcoin development
+- [starcoin doc](https://starcoinorg.github.io/starcoin-cookbook/zh/)
 - [MOVE 从入门到进阶-Starcoin 直播课 1](https://weibo.com/l/wblive/p/show/1022:2321324653445776015474)
 - [「轻松掌握Move精髓」Starcoin Move直播课 2](https://weibo.com/l/wblive/p/show/1022:2321324655638159687840)
 - [「Move & Dapp实战」Starcoin Move在线课 3](https://weibo.com/l/wblive/p/show/1022:2321324658455788257683)
