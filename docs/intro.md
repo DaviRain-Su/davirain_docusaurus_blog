@@ -136,6 +136,11 @@ title: Rust Tourtials
 - [Rust FFI 编程 - cbindgen 使用示例](https://mp.weixin.qq.com/s/QIRxdjDf57gGRBSJXifiOg)
 - [Rust FFI 编程 - 其它语言调用 Rust 代码 - Python](https://mp.weixin.qq.com/s/7pBVXwCUpqhKxMVZS5MTlw)
 
+### Rust中文杂志
+- [rust 2021年中文杂志](https://rustmagazine.github.io/rust_magazine_2021/)
+- [rust 2022年中文杂志](https://rustmagazine.github.io/rust_magazine_2022/Q1/toc.html)
+
+
 ### Rust Cheat Sheet
 
 - [Rust Language Cheat Sheet](https://cheats.rs/)
@@ -167,7 +172,7 @@ title: Rust Tourtials
 - [使用 Rust 迈出第一步](https://docs.microsoft.com/zh-cn/learn/paths/rust-first-steps/)
 - [http://cis198-2016s.github.io/schedule/](http://cis198-2016s.github.io/schedule/)
 - [Rust in Motion](https://www.manning.com/livevideo/rust-in-motion?a_aid=cnichols&a_bid=6a993c2e)
-
+- [Rust编程教程 基础](https://www.bilibili.com/video/BV1xJ411B79h?spm_id_from=333.999.0.0)
 
 ### [Awesome Rust Streaming](https://github.com/jamesmunns/awesome-rust-streaming)
 
