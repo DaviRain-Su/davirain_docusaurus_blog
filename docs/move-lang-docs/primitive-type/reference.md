@@ -2,7 +2,7 @@
 
 Move 支持两种类型的引用：不可变引用 `&` 和可变引用 `&mut`。不可变引用是只读的，不能修改相关值(或其任何字段)。可变引用通过写入该引用进行修改。Move的类型系统强制执行所有权规则，以避免引用错误。
 
-更多有关引用规则的详细信息，请参阅：[结构和资源](./chapter_16_structs-and-resources.html).
+更多有关引用规则的详细信息，请参阅：[结构和资源](../basic-concepts/structs-and-resources.md).
 
 ## 引用运算符 (Reference Operators)
 
@@ -61,7 +61,7 @@ let z: &&u64 = &y; // will not compile
 | `*e1 = e2` | () 其中 `e1: &mut T` 和 `e2: T` | 用 `e2` 更新 `e1` 中的值
 
 
-为了读取引用，相关类型必须具备[`copy` 能力](./chapter_19_abilities.html)，因为读取引用会创建值的新副本。此规则防止复制资源值：
+为了读取引用，相关类型必须具备[`copy` 能力](../basic-concepts/abilities.md)，因为读取引用会创建值的新副本。此规则防止复制资源值：
 
 ```move=
 fun copy_resource_via_ref_bad(c: Coin) {
@@ -72,7 +72,7 @@ fun copy_resource_via_ref_bad(c: Coin) {
 }
 ```
 
-双重性：为了写入引用，相关类型必须具备[`drop` 能力](./chapter_19_abilities.html)，因为写入引用将丢弃(或“删除”)旧值。此规则可防止破坏资源值：
+双重性：为了写入引用，相关类型必须具备[`drop` 能力](../basic-concepts/abilities.md)，因为写入引用将丢弃(或“删除”)旧值。此规则可防止破坏资源值：
 
 ```move=
 fun destroy_resource_via_ref_bad(ten_coins: Coin, c: Coin) {
@@ -177,7 +177,7 @@ error:
 ```
 
 
-当前唯一具有子类型的其他类型是[tuple(元组)](./chapter_9_tuples.html)
+当前唯一具有子类型的其他类型是[tuple(元组)](./tuples.md)
 
 ## 所有权 (Ownership)
 
@@ -192,17 +192,17 @@ fun reference_copies(s: &mut S) {
 }
 ```
 
-对于熟悉 Rust 所有权系统的程序员来说，这可能会令人惊讶，因为他们会拒绝上面的代码。Move 的类型系统在处理[副本](./chapter_10_variables.html#move-and-copy)方面更加宽松 ，但在写入前确保可变引用的唯一所有权方面同样严格。
+对于熟悉 Rust 所有权系统的程序员来说，这可能会令人惊讶，因为他们会拒绝上面的代码。Move 的类型系统在处理[副本](../basic-concepts/variables.md#move-and-copy)方面更加宽松 ，但在写入前确保可变引用的唯一所有权方面同样严格。
 
 ### 无法存储引用 (References Cannot Be Stored)
 
 
 
-引用和元组是唯一不能存储为结构的字段值的类型，这也意味着它们不能存在于全局存储中。当 Move 程序终止时，程序执行期间创建的所有引用都将被销毁；它们完全是短暂的。这种不变式也适用于没有[`store` 能力](./chatper_19_abilities.html)的类型的值，但请注意，引用和元组更进一步，从一开始就不允许出现在结构中。
+引用和元组是唯一不能存储为结构的字段值的类型，这也意味着它们不能存在于全局存储中。当 Move 程序终止时，程序执行期间创建的所有引用都将被销毁；它们完全是短暂的。这种不变式也适用于没有[`store` 能力](../basic-concepts//abilities.md)的类型的值，但请注意，引用和元组更进一步，从一开始就不允许出现在结构中。
 
 这是 Move 和 Rust 之间的另一个区别，后者允许将引用存储在结构内。
 
 
-目前，Move 无法支持这一点，因为引用无法被[序列化](https://en.wikipedia.org/wiki/Serialization)，但 _每个 Move 值都必须是可序列化的_。这个要求来自于 Move 的 [持久化全局存储](./global-storage-structure.html)，它需要在程序执行期间序列化值以持久化它们。结构体可以写入全局存储，因此它们必须是可序列化的。
+目前，Move 无法支持这一点，因为引用无法被[序列化](https://en.wikipedia.org/wiki/Serialization)，但 _每个 Move 值都必须是可序列化的_。这个要求来自于 Move 的 [持久化全局存储](../global-storage/global-storage-structure.md)，它需要在程序执行期间序列化值以持久化它们。结构体可以写入全局存储，因此它们必须是可序列化的。
 
-可以想象一种更奇特、更有表现力的类型系统，它允许将引用存储在结构中，并禁止这些结构存在于全局存储中。我们也许可以允许在没有[`store` 能力](./chapter_19_abilities.html)的结构内部使用引用，但这并不能完全解决问题：Move 有一个相当复杂的系统来跟踪静态引用安全性，并且类型系统的这一方面也必须扩展以支持在结构内部存储引用。简而言之，Move 的类型系统(尤其是与引用安全相关的方面)需要扩展以支持存储的引用。随着语言的发展，我们正在关注这一点。
+可以想象一种更奇特、更有表现力的类型系统，它允许将引用存储在结构中，并禁止这些结构存在于全局存储中。我们也许可以允许在没有[`store` 能力](../basic-concepts/abilities.md)的结构内部使用引用，但这并不能完全解决问题：Move 有一个相当复杂的系统来跟踪静态引用安全性，并且类型系统的这一方面也必须扩展以支持在结构内部存储引用。简而言之，Move 的类型系统(尤其是与引用安全相关的方面)需要扩展以支持存储的引用。随着语言的发展，我们正在关注这一点。

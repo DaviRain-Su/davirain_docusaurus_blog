@@ -369,7 +369,7 @@ address 0x2 {
 ## 在全局存储中存储资源 (Storing Resources in Global Storage)
 
 
-只有具有 `key` 能力的结构体才可以直接保存在[全局存储](./global-storage-operators.md)。存储在这些 `key` 中的所有结构体的值必须具有 `store` 能力。请参阅 [能力(abilities)](./chapter_19_abilities] 和[全局存储](./global-storage-operators.md) 章节了解更多详细信息
+只有具有 `key` 能力的结构体才可以直接保存在[全局存储](../global-storage/global-storage-operators.md)。存储在这些 `key` 中的所有结构体的值必须具有 `store` 能力。请参阅 [能力(abilities)](./chapter_19_abilities] 和[全局存储](../global-storage/global-storage-operators.md) 章节了解更多详细信息
 
 ## Examples
 

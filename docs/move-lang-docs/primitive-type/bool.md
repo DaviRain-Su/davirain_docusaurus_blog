@@ -30,4 +30,4 @@
 
 ## 所有权 (Ownership)
 
-与语言内置的其他标量值一样，布尔值是隐式可复制的，这意味着它们可以在没有明确指令如[`copy`](./variables.md#move-and-copy)的情况下复制。
+与语言内置的其他标量值一样，布尔值是隐式可复制的，这意味着它们可以在没有明确指令如[`copy`](../basic-concepts/variables.md#move-and-copy)的情况下复制。

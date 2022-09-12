@@ -114,7 +114,7 @@ let hex_u128: u128 = 0xDEADBEEF;
 
 ###  相等 (Equality)
 
-与 Move 中的所有具有[`drop`](./chapter_19_abilities.html)能力的类型一样，所有整数类型都支持 ["equal(等于)"](./chapter_11_equality.html) 和 ["not equal(不等于)](./chapter_11_equality.html)运算。两个参数必须是同一类型。如果您需要比较不同类型的整数，则需要先转换其中一个。
+与 Move 中的所有具有[`drop`](../basic-concepts/abilities.md)能力的类型一样，所有整数类型都支持 ["equal(等于)"](../basic-concepts/equality.md) 和 ["not equal(不等于)](../basic-concepts/equality.md)运算。两个参数必须是同一类型。如果您需要比较不同类型的整数，则需要先转换其中一个。
 
 相等(Equality)运算不会中止。
 
@@ -123,7 +123,7 @@ let hex_u128: u128 = 0xDEADBEEF;
 | `==`   | 等于     |
 | `!=`   | 不等于 |
 
-更多细节可以参考[相等]([equality](https://move-language.github.io/move/equality.html))章节。
+更多细节可以参考[相等](https://move-language.github.io/move/equality.html)章节。
 
 ## 转换 (Casting)
 
@@ -145,4 +145,4 @@ let hex_u128: u128 = 0xDEADBEEF;
 ## 所有权 (Ownership)
 
 
-与语言内置的其他标量值一样，整数值是隐式可复制的，这意味着它们可以在没有明确指令如[`copy`](./variables.md#move-and-copy)的情况下复制。
+与语言内置的其他标量值一样，整数值是隐式可复制的，这意味着它们可以在没有明确指令如[`copy`](../basic-concepts/variables.md#move-and-copy)的情况下复制。

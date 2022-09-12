@@ -181,7 +181,7 @@ address 0x2 {
 ### Phantom Type Parameters
 
 
-在上面的例子中，虽然 `struct Coin` 要求有 `store` 能力，但 `Coin<Currency1>` 和 `Coin<Currency2>` 都没有 `store` 能力。这是因为 [条件能力与泛型类型](./chatper_19_abilities.md#conditional-abilities-and-generic-types)的规则, 而实际上 `Currency1`和 `Currency2` 本身都没有 `store` 能力，尽管它们甚至没有在`struct Coin` 的主体中使用. 这可能会导致一些不好的后果。例如，我们无法将 `Coin<Currency1>` 放入全局存储的一个钱包中。
+在上面的例子中，虽然 `struct Coin` 要求有 `store` 能力，但 `Coin<Currency1>` 和 `Coin<Currency2>` 都没有 `store` 能力。这是因为 [条件能力与泛型类型](../basic-concepts/abilities.md#conditional-abilities-and-generic-types)的规则, 而实际上 `Currency1`和 `Currency2` 本身都没有 `store` 能力，尽管它们甚至没有在`struct Coin` 的主体中使用. 这可能会导致一些不好的后果。例如，我们无法将 `Coin<Currency1>` 放入全局存储的一个钱包中。
 
 
 一种可能的解决方案是向 `Currency1` 和 `Currency2` 添加虚假能力标注(例如：`struct Currency1 has store {}`) 。但是，这可能会导致 bugs 或安全漏洞，因为它削弱了类型安全，声明了不必要的能力。例如，我们永远不会期望全局存储中的资源具有 `Currency1` 类型的字段，但这对于虚假 `store` 能力是可能发生的。
@@ -252,7 +252,7 @@ struct S<phantom T: copy> {}
 ## 约束 (Constraints)
 
 
-在上面的例子中，我们已经演示了如何使用类型参数来定义“未知”类型，这些类型可以在稍后被调用者插入。然而，这意味着类型系统几乎没有关于类型的信息，并且必须以非常保守的方式执行检查。从某种意义上说，类型系统必须假设不受约束的泛型时的最坏场景。简单地说，默认情况下泛型类型参数没有[能力](./abilities.md)。
+在上面的例子中，我们已经演示了如何使用类型参数来定义“未知”类型，这些类型可以在稍后被调用者插入。然而，这意味着类型系统几乎没有关于类型的信息，并且必须以非常保守的方式执行检查。从某种意义上说，类型系统必须假设不受约束的泛型时的最坏场景。简单地说，默认情况下泛型类型参数没有[能力](../basic-concepts/abilities.md)。
 
 这就是约束发挥作用的地方：它们提供了一种方法来指定这些未知类型具有哪些属性，因此类型系统可以允许相应的操作，否则会不安全。
 
@@ -266,7 +266,7 @@ T: <ability> (+ <ability>)*
 ```
 
 
-`<ability>` 可以是四种[能力](./abilities.md)中的任何一种，一个类型参数可以同时被多个能力约束。因此，以下所有内容都是有效的类型参数声明
+`<ability>` 可以是四种[能力](../basic-concepts/abilities.md)中的任何一种，一个类型参数可以同时被多个能力约束。因此，以下所有内容都是有效的类型参数声明
 
 ```move
 T: copy
@@ -327,7 +327,7 @@ fun foo(): (R, R) {
 ```
 
 
-有关更多信息，请参阅有关[条件能力与泛型类型](./abilities.md#conditional-abilities-and-generic-types)
+有关更多信息，请参阅有关[条件能力与泛型类型](../basic-concepts/abilities.md#conditional-abilities-and-generic-types)
 
 ## 递归的限制 (Limitations on Recursions)
 

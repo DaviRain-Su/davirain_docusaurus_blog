@@ -53,7 +53,7 @@ b"" != 0; // 错误!
 
 ### 引用变量的类型校验 (Typing with references)
 
-当比较[引用变量](./references.md)时，引用的类别(不可变更的或可变更的(immutable or mutable))无关紧要。这意味着我们可以拿一个不可变更的 `&` 引用变量和另一个有相同相关类型的可变更的 `&mut ` 引用变量进行比较。
+当比较[引用变量](../primitive-type/reference.md)时，引用的类别(不可变更的或可变更的(immutable or mutable))无关紧要。这意味着我们可以拿一个不可变更的 `&` 引用变量和另一个有相同相关类型的可变更的 `&mut ` 引用变量进行比较。
 
 ```move
 let i = &0;

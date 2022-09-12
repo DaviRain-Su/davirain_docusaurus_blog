@@ -352,7 +352,7 @@ script {
 }
 ```
 
-如 [元组部分](./chapter_9_tuples.md) 中所述，这些元组“值”是模拟(virtual)的，且在运行时不存在。所以对于返回 unit `()`的函数，它在执行期间根本不会返回任何值。
+如 [元组部分](../primitive-type/tuples.md) 中所述，这些元组“值”是模拟(virtual)的，且在运行时不存在。所以对于返回 unit `()`的函数，它在执行期间根本不会返回任何值。
 
 ### Function body (函数体)
 

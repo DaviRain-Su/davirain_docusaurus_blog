@@ -8,13 +8,13 @@ Move标准库公开了实现以下功能的接口:
 
 ## 向量（vector）
 
-`向量`模块在原生类型[`向量`](./vector.md)上定义了许多操作。该模块以命名地址`Std`发布，并由许多原生函数以及在Move中定义的函数组成。此模块的API如下所示:
+`向量`模块在原生类型[`向量`](../primitive-type/vector.md)上定义了许多操作。该模块以命名地址`Std`发布，并由许多原生函数以及在Move中定义的函数组成。此模块的API如下所示:
 
 ### 函数（Functions）
 
 ---------------------------------------------------------------------------
 
-创建一个空的[`向量`](./vector.md)。
+创建一个空的[`向量`](../primitive-type/vector.md)。
 `Element`类型可以是`资源`或`可复制`类型。
 
 ```move
@@ -33,7 +33,7 @@ Move标准库公开了实现以下功能的接口:
 ---------------------------------------------------------------------------
 
 销毁(释放)向量`v`。如果`v`非空操作将终止。
-*注意*:空的限制是由于`Element`可以是资源类型，而销毁非空的向量会违反[资源保护机制](./structs-and-resources.md)。
+*注意*:空的限制是由于`Element`可以是资源类型，而销毁非空的向量会违反[资源保护机制](../basic-concepts/structs-and-resources.md)。
 
 ```move
     native public fun destroy_empty<Element>(v: vector<Element>);
@@ -41,7 +41,7 @@ Move标准库公开了实现以下功能的接口:
 
 ---------------------------------------------------------------------------
 
-获取向量`v`的第`i`个元素的[不可变引用](./references.md)。如果索引`i`超出了向量`v`的范围，操作将会终止。
+获取向量`v`的第`i`个元素的[不可变引用](../primitive-type/reference.md)。如果索引`i`超出了向量`v`的范围，操作将会终止。
 
 ```move
     native public fun borrow<Element>(v: &vector<Element>, i: u64): &Element;
@@ -49,7 +49,7 @@ Move标准库公开了实现以下功能的接口:
 
 ---------------------------------------------------------------------------
 
-获取向量`v`的第`i`个元素的[可变引用](./references.md)。如果索引`i`超出了向量`v`的范围，操作将会终止。
+获取向量`v`的第`i`个元素的[可变引用](../primitive-type/reference.md)。如果索引`i`超出了向量`v`的范围，操作将会终止。
 
 ```move
     native public fun borrow_mut<Element>(v: &mut vector<Element>, i: u64): &mut Element;

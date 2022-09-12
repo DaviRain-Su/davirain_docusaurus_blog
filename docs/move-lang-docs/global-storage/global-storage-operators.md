@@ -1,7 +1,7 @@
 # 全局存储 - 操作（Global Storage - Operators）
 
 
-Move程序可以使用下面五种指令创建、删除、更新全局存储中的[资源](./structs-and-resources.md)：
+Move程序可以使用下面五种指令创建、删除、更新全局存储中的[资源](../basic-concepts/structs-and-resources.md)：
 
 | 操作符                                 | 描述                                                   | 出错                           |
 ---------------------------------------- |------------------------------------------------------ |---------------------------------- |
@@ -13,13 +13,13 @@ Move程序可以使用下面五种指令创建、删除、更新全局存储中�
 |
 
 
-每个指令的参数 `T` 都具有 [`key` 能力](./abilities.md)。然而，类型 `T` *必须在当前模块*中声明。这确保资源只能通过当前模块暴露的 API 来操作。指令在存储 `T` 类型资源的同时，使用 [`address`](./address.md) 或 [`&signer`](./signer.md) 表示账户地址。
+每个指令的参数 `T` 都具有 [`key` 能力](../basic-concepts/abilities.md)。然而，类型 `T` *必须在当前模块*中声明。这确保资源只能通过当前模块暴露的 API 来操作。指令在存储 `T` 类型资源的同时，使用 [`address`](../primitive-type/addresses.md) 或 [`&signer`](../primitive-type/signer.md) 表示账户地址。
 
 
 ## 资源参考（References to resources）
 
 
-`borrow_global` 或 `borrow_global_mut` 指令返回的全局资源引用在大多数情况下类似本地存储的引用：它们可以通过[引用操作](./references.md)进行拓展、读和写，也可以作为其它函数的参数。然而本地引用和全局引用有个重要差异：**函数不能返回指向全局存储的引用**。例如，下面两个函数编译会失败：
+`borrow_global` 或 `borrow_global_mut` 指令返回的全局资源引用在大多数情况下类似本地存储的引用：它们可以通过[引用操作](../primitive-type/reference.md)进行拓展、读和写，也可以作为其它函数的参数。然而本地引用和全局引用有个重要差异：**函数不能返回指向全局存储的引用**。例如，下面两个函数编译会失败：
 
 
 ```move
@@ -58,7 +58,7 @@ fun publish_instantiated_generic_container(account: &signer, t: u64) {
 ```
 
 
-能够通过参数类型在运行时中索引全局存储的能力是 Move 的强大特性，该特性称之为*存储多态性*。关于此特性更多的设计模式，请参考[Move泛型](./generics.md)这节。
+能够通过参数类型在运行时中索引全局存储的能力是 Move 的强大特性，该特性称之为*存储多态性*。关于此特性更多的设计模式，请参考[Move泛型](../basic-concepts/generics.md)这节。
 
 ## 示例： `Counter` （Example: `Counter`）
 
@@ -196,12 +196,12 @@ module m {
 fun redundant_acquires_bad() acquires Counter {}
 ```
 
-关于 `acquires` 更多信息，参见 [Move 函数](./functions.md)。
+关于 `acquires` 更多信息，参见 [Move 函数](../basic-concepts/functions.md)。
 
 ## 全局资源引用安全（Reference Safety For Global Resources）
 
 
-Move 禁止返回全局引用并且需要使用 `acquires` 标注来防止空引用。这使 Move 保证了所有[引用](./references.md)类型的静态引用安全性（例如，没有空引用、不会解引用 `null` 或 `nil` 对象）。
+Move 禁止返回全局引用并且需要使用 `acquires` 标注来防止空引用。这使 Move 保证了所有[引用](../primitive-type/reference.md)类型的静态引用安全性（例如，没有空引用、不会解引用 `null` 或 `nil` 对象）。
 
 
 这个例子展示了 Move 类型系统如何通过使用 `acquires` 来防止空引用：

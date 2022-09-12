@@ -153,8 +153,8 @@ let y = copy x; // 没有 copy 将导致编译器错误！
 
 大向量的复制可能很昂贵，因此编译器需要显式 `copy` 以便更容易查看它们发生的位置。
 
-有关更多详细信息，请参阅[类型能力](./abilities.md)和[泛型](./generics.md)部分。
+有关更多详细信息，请参阅[类型能力](../basic-concepts/abilities.md)和[泛型](../basic-concepts/generics.md)部分。
 
 ## 所有权（Ownership）
 
-[如上所述](#销毁和复制-vectordestroying-and-copying-vector)，`vector` 值只有在元素值可以复制的时候才能复制。在这种情况下，复制必须通过显式 [`copy`](./variables.md#移动和复制move-and-copy) 或者[解引用 `*`](./references.md#引用运算符reference-operators)。
+[如上所述](#销毁和复制-vectordestroying-and-copying-vector)，`vector` 值只有在元素值可以复制的时候才能复制。在这种情况下，复制必须通过显式 [`copy`](../basic-concepts/variables.md#移动和复制move-and-copy) 或者[解引用 `*`](../primitive-type/reference.md#引用运算符reference-operators)。

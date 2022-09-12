@@ -454,7 +454,7 @@ vector::push_back(&mut v, 100);
 assert!(*vector::borrow(&v, 0) == 100, 42)
 ```
 
-关于更多细节可以参考 [Move references](./references.md).
+关于更多细节可以参考 [Move references](../primitive-type/reference.md).
 
 ## 作用域 (Scopes)
 

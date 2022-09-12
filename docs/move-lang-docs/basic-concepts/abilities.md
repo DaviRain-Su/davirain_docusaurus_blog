@@ -21,7 +21,7 @@
 
 ### `copy`
 
-`copy` 能力允许具有此能力的类型的值被复制。 它限制了从本地变量通过 [`copy`](./variables.md#.move-and-copy)能力复制值以及通过 [`dereference *e`](./chapter_8_references.html#reading-and-writing-through-references)复制值这两种情况之外的复制操作。
+`copy` 能力允许具有此能力的类型的值被复制。 它限制了从本地变量通过 [`copy`](./variables.md#.move-and-copy)能力复制值以及通过 [`dereference *e`](../primitive-type/reference.md#reading-and-writing-through-references)复制值这两种情况之外的复制操作。
 
 如果一个值具有 `copy` 能力，那么这个值内部的所有值都有 `copy` 能力。
 
@@ -30,20 +30,20 @@
 `drop` 能力允许类型的值被丢弃。丢弃的意思程序执行后值会被有效的销毁而不必被转移。因此，这个能力限制在多个位置忽略使用值的可能性，包括：
 * 未被使用的局部变量或者参数
 * 未被使用的 [`sequence` via `;`](./variables.md#expression-blocks)中的值
-* 覆盖[赋值(assignments)](./chapter_10_variables.html#assignments)变量中的值
+* 覆盖[赋值(assignments)](./variables.md#assignments)变量中的值
 * [写入(writing) `*e1 = e2`](https://move-language.github.io/move/references.html#reading-and-writing-through-references) 时通过引用覆盖的值。
 
 如果一个值具有 `drop` 能力，那么这个值内部的所有值都有 `drop` 能力。
 
 ### `store`
 
-`store` 能力允许具有这种能力的类型的值位于[全局存储](./global-storage-operators.html)中的结构体(资源)内, *但不一定是* 全局存储中的顶级资源。这是唯一不直接限制操作的能力。相反，当(`store`)与 `key` 一起使用时，它对全局存储中的可行性进行把关。。
+`store` 能力允许具有这种能力的类型的值位于[全局存储](../global-storage/global-storage-operators.md)中的结构体(资源)内, *但不一定是* 全局存储中的顶级资源。这是唯一不直接限制操作的能力。相反，当(`store`)与 `key` 一起使用时，它对全局存储中的可行性进行把关。。
 
 如果一个值具有 `store` 能力，那么这个值内部的所有值都有 `store` 能力。
 
 ### `key`
 
-`key` 能力允许此类型作为[全局存储](./global-storage-operators.html)中的键。它会限制所有[全局存储](./global-storage-operators.html)中的操作，因此一个类型如果与 `move_to`, `borrow_global`, `move_from` 等一起使用，那么这个类型必须具备 `key` 能力。请注意，这些操作仍然必须在定义 `key` 类型的模块中使用(从某种意义上说，这些操作是此模块的私有操作)。
+`key` 能力允许此类型作为[全局存储](../global-storage/global-storage-operators.md)中的键。它会限制所有[全局存储](../global-storage/global-storage-operators.md)中的操作，因此一个类型如果与 `move_to`, `borrow_global`, `move_from` 等一起使用，那么这个类型必须具备 `key` 能力。请注意，这些操作仍然必须在定义 `key` 类型的模块中使用(从某种意义上说，这些操作是此模块的私有操作)。
 
 如果有一个值有 `key` 能力，那么这个值包含的所有字段值也都具有 `store` 能力，`key` 能力是唯一一个具有非对称的能力。
 
@@ -59,7 +59,7 @@
     * 这是指复制和删除引用本身，而不是它们所引用的内容。
     * 引用不能出现在全局存储中，因此它们没有 `store` 能力。
 
-所有基本类型都没有 `key`，这意味着它们都不能直接用于[全局存储操作](./global-storage-operators.html)。
+所有基本类型都没有 `key`，这意味着它们都不能直接用于[全局存储操作](../global-storage/global-storage-operators.md)。
 
 ## Annotating Structs (标注结构体)
 

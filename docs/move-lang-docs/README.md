@@ -1,4 +1,4 @@
-# [The Move Programming Language](https://github.com/move-language/move/blob/main/language/documentation/book/translations/move-book-zh/src/SUMMARY.md) (Move 编程语言-Aptos Move实操)
+# The Move Programming Language
 
 Move 是 Diem 项目 专门为区块链开发的一种安全可靠的智能合约编程语言。
 您可以在 Diem 开发者网站 找到它的白皮书，也可以在 开发者社区 找到更多内容，了解为什么 Move 更适合区块链。
