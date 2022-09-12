@@ -5,6 +5,7 @@ Move 是 Diem 项目 专门为区块链开发的一种安全可靠的智能合�
 
 作为一种刚刚诞生的语言，介绍它的信息不是很多。我把收集到的信息加工、汇总，以书本的形式呈现给读者，便于初学者参考。
 
+
 - [引言](./introduction.md)
 - Getting Started
   - [模块和脚本](./getting-started/modules-and-scripts.md)
